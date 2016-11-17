@@ -19,14 +19,22 @@ function addItem(){
   item.appendChild(btnClose);
   list.appendChild(item);
   document.getElementById("newItem").innerHTML = "";
-}
 
+  myList.splice("li");
+  document.getElementById("li").innerHTML = "";
+
+}
+var myList = ["cherry" , "mango", "kiwi"];
+document.getElementById("li");
 function removeParentListItem()
 {
 var mom =this.parentNode;
 var grandma = mom.parentNode;
 grandma.removeChild(mom);
-
+li.pop();
+var itemRemove = mom.firstChild.textContent;
+var itemIndex= "myList";
+myList.splice(itemIndex,1);
 }
 
 
