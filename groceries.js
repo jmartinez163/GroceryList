@@ -1,3 +1,5 @@
+var myList = [];
+var phone = "";
 function addItem(){
   var input =document.getElementById("newItem").value;
   var list = document.getElementById("listDisplay");
@@ -21,11 +23,11 @@ function addItem(){
   document.getElementById("newItem").innerHTML = "";
 
   myList.splice("li");
-  document.getElementById("li").innerHTML = "";
+
 
 }
-var myList = ["cherry" , "mango", "kiwi"];
-document.getElementById("li");
+
+
 function removeParentListItem()
 {
 var mom =this.parentNode;
@@ -37,7 +39,19 @@ var itemIndex= "myList";
 myList.splice(itemIndex,1);
 }
 
+function saveList()
+{
+phone =myList.join();
+setCookie("phoneList", phone, 1);
 
+}
+
+function clearList()
+{
+document.getElementById("listDisplay").innerHTML = "";
+myList = [];
+
+}
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
