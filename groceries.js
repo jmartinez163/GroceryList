@@ -1,7 +1,19 @@
+window.onload = loadCookieList;
 var myList = [];
 var phone = "";
 function addItem(){
   var input =document.getElementById("newItem").value;
+  displayItem(input);
+
+}
+
+function displayItem(input)
+{
+  var Find = myList.indexOf(input);
+  if (Find == -1)
+  {
+    myList.push(input);
+    console.log(myList);
   var list = document.getElementById("listDisplay");
   var btnClose = document.createElement("btn");
   btnClose.classList.add("btn");
@@ -21,12 +33,8 @@ function addItem(){
   item.appendChild(btnClose);
   list.appendChild(item);
   document.getElementById("newItem").innerHTML = "";
-
-  myList.splice("li");
-
-
 }
-
+}
 
 function removeParentListItem()
 {
@@ -50,8 +58,19 @@ function clearList()
 {
 document.getElementById("listDisplay").innerHTML = "";
 myList = [];
-
 }
+
+function loadCookieList()
+{
+  var cook = getCookie("phoneList");
+  var arrayCookie= cook.split("");
+  for( var i=0; i < arrayCookie.length; i++)
+  {
+    displayItem(arrayCookie[i]);
+  }
+}
+
+
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
